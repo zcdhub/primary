@@ -1,0 +1,447 @@
+第四天
+1.CSS的书写形式
+	0.语法结构
+		选择器{属性1:值1; 属性2:值2; }
+		例：div{colro:blue; text-align:center; }
+
+	⑴外联<link rel="stylesheet" type="text/css" href="#.css">
+
+	⑵头部形式(写在head里)
+		<style type="text/css"> 
+			内写样式 
+		</style>
+
+	⑶内连样式(body内的标签中)
+		<p style="CSS样式"> 段落 </p>
+
+2.选择器
+<head>
+	<style type="text/css">
+	⑴通配选择器
+		*{color:pink;}		
+	       /* :改变所有的标签样式 cloor修改文字颜色，全变为粉色 */
+
+	⑵标签选择器
+		h1{width:200px; height:300px; border:1px solid red; text-align:center; }	
+			/*标签有1px,实心红色的边框，有宽高，标签内容居中*/
+
+	⑶类选择器
+		.tag01{color:red; border:1px solid blue; width:200px; height:100; }  
+		.tag_01{list-style-type:none;}  
+			/*tag_01设置li标签前的标记形式，none为没有,squre为矩形 (类的名字开头必须为字母)*/ 
+
+	⑷id选择器
+		#tag02{color:rgb(200,100,150); }  
+			/*id选择具有唯一性，优先级比类的高*/
+
+	⑸群组选择器
+		li, td, .tag03, #tag_03{color:blue; font-size: 20px}  
+			/* 写类和id的时候要要注意相应的写法*/
+
+	⑹后代选择器
+		table a{text-decoration:none; color:red; font-size:3cm;}  
+			/* 全路径(table tr td div h1 a)可以简写，*/
+
+	⑺子代选择器
+		tr > td{color:green; background-color:#ccc; }  
+			/*注意大于符号，只能通过两层*/
+
+	⑻属性选择器 
+		 [title]{border:1px solid pink; width:200px; height:100px; }  
+		 img[title][id="tag_04"]{border:1px solid pink; width:200px; height:100px; }  
+		 	/*注意属性的选择多个，缩小范围*/
+
+ 	⑼相邻兄弟选择器
+ 		td + td{color:red; }  
+ 			/* 只有对相邻的亲兄弟才有效，顺序从上倒下*/
+ 		.tag05 +.tag06{color:blue;}  
+ 			/*同行之中只改变后一个,两个以上无效*/
+ 		}
+	</style></head>	
+<body>
+	⑴	<p>p示意通配选择器</p>
+
+	⑵	<h1>h1示意标签选择器</h1>
+
+	⑶	<p>p示意类选择器</p>
+		<ul>
+			<li class="tag01">li示意类选择器</li>
+			<li class="tag01 tag_01">li示意类选择器</li>
+		</ul>
+
+	⑷	<u id="tag02">u示意id选择器</u>
+
+	⑸	<b class="rag03">b示意群组选择器</b>
+		<h2 id="tag_03">h2示意群组选择器</h2>
+		<ul>
+			<li>li示意群组选择器</li>
+		</ul>
+		<table>
+			<tr>
+				<td>table示意群组选择器</td>
+			</tr>
+		</table>
+
+	⑹	<table>
+			<tr>
+				<td>
+					<div>
+						<h1>
+							<a href="">示意后代选择器</a>>
+						</h1>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+	⑺	<table>
+			<tr>
+				<td>td示意子代选择器</td>
+			</tr>
+		</table>
+
+	⑻	<img src="" title="img1" alt="img1示意属性选择器" id="tag04" />
+		<img src="" title="img1" alt="img1示意属性选择器" id="tag_04" />
+		<img src="" title="img2" alt="img2示意属性选择器" class="tag_04" />
+		<p>p示意属性选择器</p>
+		<h1>h1示意属性选择器</h1>
+
+	⑼	<table>
+			<tr>
+				<td class="tag05">1,1示意兄弟选择器</td>
+				<td class="tag06">1,2示意兄弟选择器</td>
+				<td class="">1,3示意兄弟选择器</td>
+
+			</tr>
+			<tr>
+				<td>2,1示意兄弟选择器</td>
+				<td>2,2示意兄弟选择器</td>
+			</tr>
+		</table>
+	</body>
+
+3.伪类(a标签) <!--补充focus-->
+<style type="text/css">
+	a:link{color:red;}       /*点击前的样式*/
+	a:visited{color:#ccc; text-decoration:overline;} 	/*访问后的样式*/
+	a:hover{color:green; text-decoration:none;} 		/*悬停时的样式*/
+	a:active{color:blue; font-weight:bold;}     		/*点击链接时的样式*/
+	/*一定要注意排列的顺序，清缓存*/
+	
+	a:first-child{color: pink} 					/*同级别的第一个变化*/
+	a:last-child{color: pink} 					/*这个无效*/
+	p:first-child{color: pink} 					/*同级别第一个*/
+	p:last-child{color: pink} 					/*同级别的最后一个(块级元素)*/
+	p:hover{color:green; text-decoration:none;}	/*文字有效果*/	
+	p:active{color:blue; font-weight:bold;} 	/*有效果*/
+	</style>
+	<body>
+		<a href="1.jpg">点击跳转图1</a>			<!--同时还变粉色-->
+		<a href="1.jpg">点击跳转图1</a>
+		<p>1</p>		<!--变粉色-->
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>		<!--变粉色-->
+		</body>
+
+4.优先级：
+	同精度下(额外考虑精度)：行间>id>class>标签>*>默认
+	不同精度(行间除外)下：精度高的优先
+	注意区别于继承(后代)选择器
+
+5.单位
+	px:像素；（分辨率）
+	em:相对于父级元素的一个比例，默认1em=16px;（浏览器一般默认16px）
+	rem:相对于html设定的比例，可以写小数
+
+6.常用CSS属性
+<style type="text/css">
+	⑴字体
+	*{
+		font-style: ;	/*italic(斜体)；风格:normal(正常)；*/
+		font-weight: ;	/*加粗:normal(正常)；bold(加粗)；*/
+		font-size: ;	/*大小:px；cm；%；em；*/
+		font-family: ;	/*字体样式(多写按顺序选择有的)*/
+
+		font-variant: ;	/*自体变化:normal(正常)；small-caps(小写转大写)。
+						注意style中写法:标签名.small{} */
+	 }
+
+ 	字体的简写(注意顺序)：/*style weight size family*/
+	p{
+		font:normal bold 20px "Microsoft YaHei" ;
+	}
+	 		
+	⑵文本
+	*{
+		color: ;			/*只写color仅改变字体颜色*/
+
+		text-decoration: ;	/*文本画线:none(无)；underline(下划线)；
+			overline(上划线)；line-through(删除线)；*/
+
+		text-align: ;		/*文本对齐:center；justify(居中)；*/
+
+		text-indent: ;		/*文本缩进(视父级单位而定):em；%...；
+			值为-99999px为隐藏，用于SEO的搜索优化*/
+		
+		white-space: nowrap;	/*文本强制不换行*/
+		overflow: hidden;	/*超出部分隐藏*/
+		text-overflow: ;	/*超出部分的显示方式
+			clip:截断，ellipsis:截断后有省略号*/
+
+		line-height: ;		/*行高:cm；px；*/
+
+		text-shadow:左右 上下 模糊度 颜色；	
+		/*文字阴影:blue 2px 3px 4px;(颜色可放前放后)
+			效果：蓝色阴影 距左端2px 距上端3px 模糊度(单位px)为4 */
+
+		vertical-align: ;	/*控制垂直方向对齐(与之同行的被设置)
+			top, middle，bottom */
+		
+		list-style:none; 	/*简写版：列表前方小点样式:none(去除)；saquare(矩形) 
+			详细版为list-style-type：*/
+
+		list-style-image:url(''); 	/*列表前方样式:换位图片(注意写法)*/
+
+		box-shadow:;左右 上下 模糊度 颜色；
+		/*整体背景阴影:-2px -3px 4px #ccc
+			效果：灰色阴影 向左移动2px 向上移动3px 模糊度(0变透明) */
+		
+		letter-spacing: ;	/*字母间隔(允许负值):em；px；*/
+		word-spacing: ;		/*文字间隔:em；px；*/
+	 }
+
+	⑶背景
+	*{
+		background-color: ;			/*背景色:单词；#***；rgb(,,)；*/
+		background-image:url();		/*背景图,注意后面资源的写法url() */
+
+		background-repeat: ;		/*背景平铺(默认平铺):
+			no-repeat(不平铺)；repeat-x(横向平铺)；repeat(平铺)；*/
+
+		background-attachment: ;	/*背景滚动:sroll(滚动)；fixed(固定)
+			注意:这个是背景图，是(div)框内部的；区别于 position:fixed; */
+
+		background-position: ;		/*背景图片位置，在背景不平铺的前提上：
+			bottom(上)；center(中)；top right(右上)；bottom left(左下)；*/
+		
+		background: linear-gradient();		/*背景渐变色*/
+///////////
+
+		background:rgba(r,g,b,a); 		/*背景透明度：rgb色值为0~255,
+			a为透明度取值范围0~1(越大越深)，a值写法等价于opicaty:0.5; */
+
+
+	 }
+
+	⑷图片背景定位  ！！！重点 
+	 	*{width:; height:; background:url('')} 		
+	 		/*大背景图(宽高与图片相同)，注意写法:url('')*/
+
+	 	*{
+	 		display:block;
+	 		width:; height:;
+	 		background:url('') no-repeat -x -y;}
+	 	/*背景图定位(从spirit图中取)：
+	 	1.标签置块(行内块)，2.图像大小宽高，
+	 	3.图片：background后注意值写法:url('') 不平铺 图像右上角起点位置(为负值)*/
+
+	⑸边框
+	*{
+		border-color: ;		/*颜色:单词；#fff；*/
+		border-width: ;		/*边框宽度:px；*/
+		border-style: ;		/*样式:solid(实线)；dashed(虚线)；double(双实线)；*/
+		border-radius: ; 	/*圆角:宽高一致下设值50%为正圆；*/
+	 }
+
+	边框的简写形式
+	*{border: 宽 样式 颜色; }
+		例：div{border-top: 3px dashed blue;}
+			/*div的上边框：宽3px 虚线  蓝色；注意：简写的分号只有最后一个*/
+
+	⑹边框距
+	*{margin: ;/*外边距*/	padding: ;/*内边距*/}
+	 	例：div{border:1px solid red;
+	 			margin-top:20px; margin-right:30px;
+				padding-bottom::40px; padding-left:50px; }
+			/*
+				此div框的上边框——父级框的上边框20px；div框的右边框——父级框的右边边距离30px；
+				div框内的文本——div框的下边框距离40px；div框呢的文本——div框的左边框距离50px；*/
+				
+	边框距简写：
+	div{margin:1px 2px 3px 4px; 	/*外边距：距上1px，距右2px 距下3px 距左4px；*/
+		padding:5px;				/*内边距四个均为5px*/
+		margin:0 auto;				/*水平居中(距上下边距0，距左右距离自动)*/
+		border:1px solid green;}
+		/*简写注意顺序依次为：上 右 下 左；写两个表示上下,左右；写三个表示上,左右,下*/
+
+	</style>
+
+
+
+第五天
+6.类型间的相互转化
+<style type="text/css">
+	*{
+		display:inline; 		/*转化为行内*/
+		display:block; 			/*转化为块*/
+		display:inline-block; 	/*转化为行内块*/
+
+		display:none; 			
+		/*隐藏此标签(包括隐藏原来占的空间) 区别于visibility*/
+		visibility:hidden;	
+		/*这个隐藏会显示原来所占的位置*/
+	 } 			
+	</style>
+	
+
+7.清除浮动：(元素变为行内)
+	0、浮动(float)使竖着排列的div框横向排列
+		<!--需要浮动的框都需要写属性float；
+		常用清除浮动：先定义clear类(利用伪类after),并把clear赋给浮动元素的父级框
+		清浮动的语法：类选择器:after{置块 连接空字符(或.) 清除二者 zoom为1}  -->
+
+	⑴清除示例：
+	<style type="text/css">
+		.clear:after{display:block; content:"."; visibility:hidden; 
+			clear:both; height:0;}
+		.clear{zoom:"1";}/*both不用改,无论清除几个*/
+		.box60{border:3px solid red;}
+		.tag61{width:100px; height:100px; border:2px dashed green; float:left;}
+		.tag62{width:150px; height:200px; border:2px dashed blue; float:left;}
+		.tag63{width:200px; height:300px; border:2px dashed #ccc; float:left;}
+			</style>
+		<body>
+			<div class="box60 clear">
+				<div class="tag61">框1</div>
+				<div class="tag62">框2</div>
+				<div class="tag63">框3</div>
+			</div>
+			</body>
+
+	<!--不太用的清除浮动方式
+		ⅰ添加空盒子
+			①在被浮动元素的 同级下 加一个class属性为clear的空div；
+			②style中定义为 style="clear:both" 
+
+		ⅱoverflow型
+			①在浮动元素的父级中添加属性值class="clear"；
+			②style中定义为 .clear{display:block;overflower:hidden;}-->
+
+8.全部清空格式的base
+<style type="text/css">
+	*{margin:0; padding:0}
+
+	ul, ol, dl, li{list-style:none;}
+
+	a{text-decoration:none; color:#000;}
+
+	input, textarea{
+		outline:none; 
+		resize:none; 
+		-text-overflow:ellipsis; /*？？？？*/
+	}
+
+	body, h1, h2, h3, h4, h5, h6, div, span, p, ul, ol, li, strong, b, i, em, ,cite, input, form{font:normal normal 12px 'Microsoft YaHei'; }
+	
+	.clearFix:after{
+		display:block; 
+		content:''; 
+		clear:both; 
+		zoom:1;
+	}
+
+	.fl{float:left;}
+	.fr{float:right;}
+</style>
+	
+
+
+第六天
+9.定位(小区域的位置排版)
+	0、定位要写属性position,控制定位方式；body自带position属性。
+
+	⑴相对定位 relative
+		相对于原来的位置发生改变，保留原有位置;
+		不改变元素的类型;
+		不脱离文档流(东西走了，但是原来占的位置依旧占着);
+
+
+	⑵绝对定位absolute：
+		相对于有position属性的父级框进行定位
+			(父级没有position属性则往上一直找；都没有则以body为基准)
+		元素变为块；
+		完全脱离文档流:(东西走了，原来占的位置就没有了)
+
+	⑶固定定位fixed
+		参照物是屏幕可视区；
+		元素变为块；
+		完全脱离文档流；
+
+	⑷层级：
+		z-index属性值确定层级上下，值默认为0,越大越往外
+		-1<父级<子集<普通元素<浮动元素<定位元素<+1
+		如果元素类型一样 后面的高于前面的
+
+示例1(绝对定位+magrin写居中):day6/水平上下居中
+<style type="text/css">
+	.box1{width:500px; height:500px; background:red;}
+	.box2{width:100px; height:100px; background:green;
+		position:absolute; top:50%; left:50%; 		/*重要语句：定位出中心点*/
+		margin-top:-50px; margin-left:-50px;}		/*重点语句：宽高折半往回拉点*/
+	</style>
+	<body>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+		</body>
+
+示例2:day6/固定定位
+<style type="text/css">
+	i{width:200px; height:200px;background:#f90;
+		position:fixed; right:0; bottom:0;}
+	</style>
+	<body>
+		<i>定位在右下角</i>
+	</body>
+
+示例3:day4/定位
+<style type="text/css">   
+	body{border:1px solid red;}
+	/**/
+	*{color:pink; font-family:"Fonts","Microsoft YaHei"; }
+	div.small{font-variant:"samll-caps";}
+	/**/
+	.bkd{width:300px; height:200px;}
+	.bkx{width:100px; height:100px;}
+	/**/
+	.tag51{border:5px double #ccc; background-color:red;}
+	/**/
+	.tag52{border:3px dashed blue; background-color:green; position:relative; top:-100px; left:50px;}
+	/**/
+	.tag53{border:2px solid red; background-color:blue; position:relative;z-index:30; }
+	/**/
+	#tag5_4{border:2px dashed #f90; background-color:#abc; position:absolute; top:50px; right:70px; z-index:40;}
+	/**/
+	.tag55{background-image:url(../day2/作业/1/1.jpg); background-color:#cba; background-repeat:no-repeat;background-position:bottom left; position:absolute; top:100px; left:360px; z-index:50;}
+	/**/
+	.tag56{position:absolute; top:350px; left:500px; z-index:60;}
+	/**/
+	.tag57{background-color:yellow; background-image:"../day3/作业/1/1.jpg"; background-repeat:no-repeat; background-position:center; position:absolute; top:400px; left:420px; z-index:70; }
+	/**/
+	#tag5_8{border:2px solid red; position:absolute; bottom:50px; right:70px; }
+	</style>
+	<body>
+		<div class="tag51 bkd small">框a</div>
+		<div class="tag52 bkd small">框b</div>
+		<div class="tag53 bkd">
+			<div class="tag5_4 bkx">框4</div>
+		</div>
+		<div class="tag55 bkd ">框5</div>
+		<div class="tag56 bkd"><img src="../day3/作业/1/1.jpg"></div>
+		<div class="tag57 bkd ">
+			<div class="tag5_8 bkx samll">kuang8</div>
+		</div>
+		</body>
+
+

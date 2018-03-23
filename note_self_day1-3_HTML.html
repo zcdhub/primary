@@ -1,0 +1,398 @@
+第一天
+0.概述
+	B/S 浏览器服务器框架
+		优点：
+			1.分布性强，客户端零维护；
+			2.业务扩展方便，通过增加网页即可增加服务器功能；
+			3.维护简单方便，改变网页即可实现用户的同步更新；
+			4.开发简单，共享性强
+		缺点：
+			1.个性化特点明显，无法实现具有个性化的功能需求；
+			2.跨服器上，bs架构不尽人意；
+			3.客户端->服务器的交互方式是请求->相应，通常动态刷新界面，相应速度明显降低；
+			4.在速度和安全性能上花费成本较高；
+			5.功能弱化，难以实现传统模式下的特殊功能要求；
+
+	C/S 客户端服务器框架
+		优点：
+		1.能充分发挥pc端的处理能力，很多工作可以在PC端处理后再发送到服务器，所以cs客户端响应速度快；
+		2.操作界面漂亮、形式多样、可以充分满足客户端自身的个性化要求；
+		3.C/S结构的管理信息系统具有较强的事务处理能力，能实现复杂的业务流程。
+		4.安全性能可以很容易保证。
+
+		缺点：
+		1.需要专门的客户端安装程序，分布功能弱；
+		2.兼容性差，对于不同的开发工具，具有较大的局限性；
+		3.开发、维护成本较高；
+		4.用户群固定；
+
+
+	html 超文本标记语言
+	CSS 层叠样式表
+	JS(JavaScript) 动态效果制作的直译式脚本语言
+
+	标签：组成网页的最小单位(规定的)
+		双:<标签名 属性1="值1"...></标签名>
+		单:<标签名 属性1="值1".../>
+
+1.全局架构标签:
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title></title>
+			<meta charset="utf-8" />
+		</head>
+		<body>
+
+		</body>
+	</html>
+
+	设置字符集：
+		<meta charset="utf-8" />
+		<!--注意后面斜杠 -->
+		另：php中设置字符集
+			header("Content-Type:text/html;charse=utf-8")
+
+2.body标签属性
+<body text="" bgcolor="" backdround="" leftmargin="" topmargin="" link="" alink="" vlink="">
+	<!--
+		text:设置文本颜色
+		bgcolor:设置背景色
+		background:设置背景图
+		leftmargin:左边距
+		topmargin:上边距
+		link:点击前的样式
+		alink:点击时的样式
+		vlink:点击后的样式
+	-->
+</body>
+
+3.实体字符集
+	&nbsp;		不间断空格 ( )
+	&emsp;		全角空格(宽度正好为一个字符)
+	&amp;       连接符 (&)
+	&gt;		大于号 (>)
+	&lt;		小于号 (<)
+	&apos;		单引号 (')
+	&quot;		双引号 (")
+	&reg;		注册商标符 ('圈R')
+	&copy;		版权符 ('圈C')
+	&trade;		商标符 (TM)
+	&times;		乘号(x)
+	&divide;	除号
+
+4.常用字体修饰标签
+	<strong></strong> ；<b></b> 均为加粗
+	<em></em> ；<i></i> ；<cite></cite>均为斜体
+	<u></u>  下划线
+	<s></s>	 删除线 			
+	<sub></sub>  下标签
+	<sup></sup>  上标签
+
+
+5.段落<p></p>
+	例：<p align="center">ABC</p>    <!--ABC 居中显示-->
+		<br/>                        <!--换行-->
+		<p align="right">ABC</p>     <!--ABC 靠右显示-->
+
+6.标题<h></h>
+	<h1>.....</h1>
+	<h2>.....</h2>
+	<h3>.....</h3>
+	..............
+	<h6>.....</h6>
+	例：<h1 align="left">ABC</h1>  
+	<!-- ABC 靠左显示  h7及以后的无效果-->
+
+7.水平线(分割线)<hr />
+	例：<hr size="10" width="80%" align="center" noshade="noshade" color="red" />
+	<!--size决定高度，width决定宽度，align控制位置
+	noshade值不写水平线空心，值为noshade为实心-->
+
+8.设置字体样式<font></font>
+	例子：<font size="" face="" color=""></font>
+	<!-- size控制大小,默认3,1~7越来越大  face控制字体-->
+
+9.超链接<a href=""></a>
+	<a href="http://www.######" target="_blank" title="">点击链接</a>
+	<!--target为打开方式，_self为默认本页面打开 _blank为新窗口打开 
+		title:悬停解释-->
+
+	锚点：
+		<a href="#jump">电梯</a>
+		<a href="#direct">直达</a>
+		...........
+		<a name="jump"></a>
+		...........
+		<b id="direct"></b>
+		...........
+		<!--
+			1.一般a标签用name，其他标签用id;
+			2.注意链接的href=""中的#;
+			3.注意跳转其他界面的写法：
+				<a href="xxx.html#jump">另一界面的锚点</a>
+		-->
+
+	邮件/电话：
+	<a href="mailto:1559720781@qq.com">发邮件</a>
+	<a href="tel:18301464973">打电话</a>
+
+10.列表<ul></ul> ；<ol></ol> ；<dl></dl>
+	
+	a.无序列表<ul></ul>
+		<ul type="">
+			<li></li>
+			<li></li>
+		</ul>
+		<!-- type定义文字前样式，默认disc实心原点，
+			circle 为空心圆，square为矩形 -->
+
+	b.有序列表<ol></ol>
+		<ol trpe="" start="">
+			<li></li>
+			<li></li>
+		</ol>
+		<!-- type定义文字前样式，默认1数字显示，
+		a A i I，以start的数值开始标记 -->
+	
+	c.自定义列表<dl></dl>
+		<dl>
+			<dt>标题</dt>
+				<dd>内容</dd>
+				<dd>内容</dd>
+				<dd>内容</dd>
+			
+			<dt>标题</dt>
+				<dd>内容</dd>
+				<dd>内容</dd>
+		</dl>
+
+
+第二天
+11.URL(网址)
+	组成：协议 + 地址(域名) + 端口 + 请求文件 + URL携带的参数
+	例子：http:// + www.baidu.com + :80 + index.php + ?username=jlkj&password=1234&sex=woman  
+	<!--
+		常用协议名的端口(一般可不写，取值0~65535,0~1024已占用)
+		http 网络传输协议  80
+		ftp  文件传输协议  20(传数据)，21(传控制信息)
+		smpt 邮件传输协议  25
+		ssh  远程传输协议  22   
+	-->
+
+12.路径
+	/		本地磁盘根目录
+	./		当前目录
+	../		上一级目录
+	../../	出两级目录
+	
+	学校/教室/李四	<!--向下找-->
+	../教室/张三	<!--出一级的同级目录下的教室下的张三 -->
+	相对于磁盘的根目录：D:/1.jpg  <!--windows下正斜线(/)和反斜线(\)一样-->  
+	相对于网站的根目录 ？？？？
+
+13.图片标签<img src="">
+ 	例子： <img src="" title="" alt="" width="" height="" border=""/>	
+ 	<!--
+ 		src为图像地址，title为悬停解释(加载失败也显示)，alt为图片加载失败显示解释，
+ 		width为宽度，hight为高度，border为边框值
+ 		注意，配合于大图的显示-->
+
+ 	a.图像热点<map></map>
+ 		例：<img src="1.jpg" usemap="redian" />
+ 			<map name="redian">
+				<area shape="circle" coords="150 , 200 , 100" href="2.jpg" >
+				<area shape="rect" coords="300,400 , 450,550" href="3.jpg" >
+ 			</map>
+ 		<!-- 注意属性usemap
+ 			运用map标签，img中用usemap属性对map中的name属性建立链接；
+ 			内链area标签：shape指定形状，rect为矩形，circle为圆形 href为链接目标
+ 			coords控制形状位置，圆:(x,y,r)，矩形:(x1,y1, x2,y2),对角线的两点  -->	
+
+14.音视频播放<audio></audio>与<video></video>
+	例子：<video src="" controls loop autoplay></video>
+	<!-- src后接资源 controls显示控键 loop无限循环,值无效 autoplay为自动播放 -->
+
+15.表格<table></table>
+	<table cellspacing="" cellpadding="" width="" height="" border="" bordercoldr="" bgcolor="" >
+		<caption></caption>
+		<tr>
+			<th rowspan=""></th>
+			<th></th>
+		</tr>
+		<tr>
+			<td colspan=""></td>
+			<td></td>
+		</tr>
+		<tr align="">
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<!-- 
+		写了一个三行两列的表格
+		cellspacing控制边框间的距离；
+		celipadding控制框内文字与边框距离；
+		border控制边框的宽度 
+		bgcolor控制背景颜色；
+		caption为表头
+		colspan为(此行)向右合并(列)；
+		rowspan为(此列)向下合并(行) -->
+
+第三天
+16.T型分帧<frameset></frameset>
+	<!-- 注意：不能与body连用，不然网页代码提示多余 -->
+	<frameset rows="20% , *" border="" frameborder="" bordercoldr="" noresize>
+		<frame src="http:www.baidu.com" scrolling="" name="top"></frame>
+		<frameset cols="25% , *">
+			<frame src="src/T_left.html" name="left"></frame>
+			<frame src="src/1.jpg" name="right"></frame>
+		</frameset>
+	</frameset>
+	附件(同级的src文件夹下)：
+	T_left.html
+		<body>
+			<a href="http://www.baidu.com" target="right">右侧跳转百度</a>
+			<br />
+			<a href="http://www.163.com" target="top">上侧跳转163</a>
+			<br />
+			<!-- 注意路径问题 -->
+			<a href="right.html" target="right">右侧跳转原来界面</a>
+		</body>
+	T_right.html
+		 <body>
+			<a href="http://www.baidu.com" target="top">上侧跳转百度</a>
+			<br />
+			<a href="http://www.163.com" target="left">左侧跳转163</a>
+			<br />
+			<!-- 注意路径问题 -->
+			<a href="left.html" target="left">左侧跳转原来界面</a>
+		 </body>
+	<!--
+		a、 T型框架：T型头部占20%,显示百度；
+			T型左侧占25%,显示T_left.html内的内容；
+			T型右侧占75%,显示1.jpg；
+
+		b、	rows控制横着分，cols控制竖着分；
+			*表示剩余；*,*则均分俩个；
+			frameborder控制T型显示与否:0不显示,非0值显示；
+			noresize控制边界不会移动，写在frame中则与该边框直接相连的无法移动；
+
+		c、	frame标签单双均可；
+			内src为获取的资源,暂不能直接写文字等；
+			scrolling控制滚动,yse(默认)或no；
+
+		d、用到相应部分需在对应frame内设置属性name值；
+			T_left.html内为链接跳转，target=""对应frame内name的值，以达到对应区域内显示变化  -->
+
+	另：
+		分帧 iframe：
+		<iframe src="" width="" height="" frameborder=""></iframe>
+		<!-- 注意；写在body中 -->
+		
+		检测浏览器是否支持显示frame：
+		<noframes>浏览器版本过低，不支持分帧显示</noframes>
+
+
+17.表单<form></form>
+	<form action="" method="" enctype="multipart/form-data" target="">
+		<input type="text" name="" value=""  maxlength="" size="" readonly disabled />
+			<!-- 文本输入框，value为显示默认值，maxlength控制最大长度，
+			size控制文本框大小，readonely只读(框不变色)，
+			disabled不能点击(框变为灰色)-->
+
+		<input type="password" name="" value="" placeholder="" />
+			<!-- 密码输入框，placeholder为(灰色的)提示值 -->
+		
+		<input type="radio" name="" value="" id="" checked /><label for=""  >单选1</label>
+		<input type="radio" name="" value="" id=""/><label for="">单选2</label>
+		<input type="radio" name="" value="" id=""/><label for="">单选3</label>
+			<!-- 单选框radio，name值相同才能单选，
+			后面label中的for对应前面的id才有效，checked为默认选中 -->
+
+		<input type="checkbox" name="check[]" value="" id=""><label for="">多项1</label> 
+		<input type="checkbox" name="check[]" value="" checked />多项2
+		<input type="checkbox" name="check[]" value="" />多选3
+			<!-- 复选框checkbox，label for因id而存在，checked默认选中 
+			name的值建议加上中括号，虽然传为数组形式，方便后期调用-->
+
+		<input type="submit" name="" value="" disabled />
+			<!-- 按钮 value控制按钮上显示值 disable控制无法点击 -->
+
+		<input type="button" name="" value=""/>
+			<!-- html中点击无效，用于JS中 --> 
+
+		<input type="file" name="" value="" />
+			<!--文件查找-->
+		
+		<input type="reset" name="" value="" />
+			<!--重置按钮-->
+
+		<input type="hidden" name="" value="" />
+			<!-- 隐藏value的值，界面不显示后期可能还要设计用 -->
+
+		<select name="" size=""  multiple>
+			<optgroup label="组1">
+				<option value="">选择1</option>
+				<option value="" selected >选择2</option>
+				<option value="">选择3</option>
+			</optgroup>
+			<optgroup label="组2">
+				<option value="">选择4</option>
+				<option value="">选择5</option>
+				<option value="">选择6</option>
+			</optgroup>
+		</select>
+			<!--下拉选择框，selected为默认选择，optgroup内加label设置分组 
+			seize显示初始提示个数，multiple可以控制多选(无size时)-->
+
+		<textarea rows="" cols="" name="" value=""></textarea>
+			<!--可编写文本框，rows控制行数，cols控制列数-->
+
+		<button name="" value=""></button>
+			<!-- 也是按钮，value控制按钮显示内容-->
+	</form>
+	<!--
+		表单的数据传输：action为传输去的目标文件，
+		method为传输方式(get或post，还有put，delete，patch) 
+		enctype为文件传输类型,file类型(我们只用这个)下只为multipart/form-data
+		target为打开方式，与a标签中一样  -->
+
+18.头元素标签：
+	1.引入css文件
+	<link rel="stylesheet" type="text/css" href="css路径" />
+		
+	2.定时刷新
+	<meta http-equiv="Refresh" content="秒数;url=http://www.####.com">
+		<!--url后写资源,不局限于网址，‘url=’这几个字母还可省略 -->
+		另在php中有：
+			header("location:$url");
+			header("refresh:3;$url");
+
+
+	3.关键字(SEO用)
+	<meta name="kewords" content="值1...">
+
+	4.描述词
+	<meta name="description" content="值1...">
+
+	5.无法调用本地缓存访问网页
+	<meta http-equiv="pragma" content="no-cache">
+
+	6.设置过期时间
+	<meta http-equiv="expires" content="thur,2 Nov 2017 20:00 GMT">
+	<!-- 时间格式：周几，几号 哪月 哪年 24小时制时间 GMT -->
+
+
+19.标签分类
+	a、块标签
+		独占一行，支持宽高设置，不受空格影响
+		例：div, p, h,li,table,body
+
+	b、行内块(标签)
+		共处一行，支持宽高设置，受空格影响
+		例：input,img，form内的所有
+
+	c、行内(标签)
+		共处一行，不支持宽高设置，受空格影响
+		例：span, select,i,a,u,b,em,strong,
